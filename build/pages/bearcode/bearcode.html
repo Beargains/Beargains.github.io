@@ -1,0 +1,44 @@
+<!--
+  Generated template for the BearcodePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-image: url(img/1.png)">
+
+
+<form [ngFormModel]="pinForm" (ngSubmit)="onSubmit(pinForm.value)">
+<ion-row>
+<ion-col text-center>
+<img class="bearcodelogo" src="img/bearcode.png">
+</ion-col>
+</ion-row>
+<ion-row width-50>
+	<ion-col class="inst" text-center>
+            <div *ngIf="password.hasError('required') && password.touched"
+            class="error-box">Pin is required</div>
+            <div *ngIf="password.hasError('minlength') && password.touched"
+            class="error-box">Pin length is 3!</div>
+            <div *ngIf="!status && password.touched"
+            class="error-box">Wrong pin!</div>
+	<input placeholder="PIN" [ngFormControl]="password" maxlength= "3" class="inputfield" type="tel" >
+            
+
+	</ion-col>
+</ion-row>
+<ion-row>
+<ion-col class="submitbtn" text-center>
+<button class="submitbutton"large round secondary type="submit">submit</button>
+</ion-col>
+</ion-row>
+</form>
+</ion-content>

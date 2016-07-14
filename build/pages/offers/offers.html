@@ -1,0 +1,61 @@
+<ion-header>
+<!--    <button menuToggle clear light>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    -->
+</ion-header>
+
+<ion-content  class="card-background-page" style="background-image: url(img/1.png)">
+<div class="maincard1">
+            <ion-card>
+              <img src='img/food.png'>
+              <ion-card-content>
+                <ion-card-title>
+                <ion-row no-padding>
+                  <ion-col no-padding>
+                    <p class="price">
+                    ${{db?.restaurants?.one?.offers?.discount_price}}
+                    </p>
+                  </ion-col>
+                </ion-row>
+                <ion-row no-padding>
+                  <ion-col no-padding>
+                    <p class="food1">
+                    {{db?.restaurants?.one?.offers?.food}}
+                    </p>
+                  </ion-col>
+                </ion-row>
+                  </ion-card-title>
+                
+                <ion-row no-padding>
+                  <ion-col no-padding>
+                    <button clear class="restaurantname1" (click)="goToRestaurant()">
+                    <ion-icon name='information-circle'></ion-icon>
+                      {{db?.restaurants?.one?.name}}
+                    </button>
+                  </ion-col>
+                </ion-row>
+                <ion-row no-padding>
+                  <ion-col>
+                    <button clear small class="time1" (click)="goToMap()">
+                      <ion-icon name='pin'></ion-icon>
+                      7 MIN WALK
+                    </button>
+                  </ion-col>
+                </ion-row>  
+              </ion-card-content>
+             <!--  <ion-row no-padding>
+                  <ion-col>
+                    <button clear small class="time" (click)="goToMap()">
+                      <ion-icon name='pin'></ion-icon>
+                      7 MIN WALK TO
+                    </button>
+                  </ion-col>
+                </ion-row> -->
+
+            </ion-card>
+</div>
+
+<div *ngIf="db?.restaurants?.one?.number_offers != 0" class = "redeem-button"><button [navPush]="pushPage" class="redeem1"  secondary inline round >Reserve</button></div>
+
+</ion-content>
